@@ -35,5 +35,5 @@ func TestGetOrganization(t *testing.T) {
 		panic(err.Error())
 	}
 
-	assert.Equal("test", organization.auth_saml_entity_id)
+	assert.Equal("test", organization.AuthSamlEntityId)
 }

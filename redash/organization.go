@@ -21,13 +21,13 @@ import (
 
 // Organization struct
 type Organization struct {
-	auth_password_login_enabled bool   `json:"auth_password_login_enabled,omitempty"`
-	auth_saml_enabled           string `json:"auth_saml_enabled,omitempty"`
-	auth_saml_type              string `json:"auth_saml_type,omitempty"`
-	auth_saml_entity_id         string `json:"auth_saml_entity_id,omitempty"`
-	auth_saml_metadata_url      string `json:"auth_saml_metadata_url,omitempty"`
-	auth_saml_nameid_format     string `json:"auth_saml_nameid_format,omitempty"`
-	auth_saml_sso_url           string `json:"auth_saml_sso_url,omitempty"`
+	AuthPasswordLoginEnabled	bool   `json:"auth_password_login_enabled,omitempty"`
+	AuthSamlEnabled           	string `json:"auth_saml_enabled,omitempty"`
+	AuthSamlType              	string `json:"auth_saml_type,omitempty"`
+	AuthSamlEntityId         	string `json:"auth_saml_entity_id,omitempty"`
+	AuthSamlMetadataUrl      	string `json:"auth_saml_metadata_url,omitempty"`
+	AuthSamlNameidFormat     	string `json:"auth_saml_nameid_format,omitempty"`
+	AuthSamlSsoUrl           	string `json:"auth_saml_sso_url,omitempty"`
 }
 
 // GetOrganization returns the organization settings
