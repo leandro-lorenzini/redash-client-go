@@ -22,7 +22,7 @@ import (
 // Organization struct
 type Organization struct {
 	AuthPasswordLoginEnabled	bool   `json:"auth_password_login_enabled,omitempty"`
-	AuthSamlEnabled           	bool   `json:"auth_saml_enabled,omitempty"`
+	AuthSamlEnabled           	string `json:"auth_saml_enabled,omitempty"`
 	AuthSamlType              	string `json:"auth_saml_type,omitempty"`
 	AuthSamlEntityId         	string `json:"auth_saml_entity_id,omitempty"`
 	AuthSamlMetadataUrl      	string `json:"auth_saml_metadata_url,omitempty"`
