@@ -1,4 +1,4 @@
-module github.com/snowplow-devops/redash-client-go
+module github.com/leandro-lorenzini/redash-client-go
 
 go 1.15
 

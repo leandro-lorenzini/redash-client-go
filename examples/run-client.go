@@ -18,7 +18,7 @@ import (
 	"os"
 
 	log "github.com/sirupsen/logrus"
-	"github.com/snowplow-devops/redash-client-go/redash"
+	"github.com/leandro-lorenzini/redash-client-go"
 )
 
 func main() {
