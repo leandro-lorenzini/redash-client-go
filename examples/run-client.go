@@ -82,6 +82,14 @@ func main() {
 	}
 	fmt.Println(fmt.Sprintf("UpdateDataSource - %#v", newDataSource))
 
+	// --- Organization interactions
+	organization, err := c.GetOrganization()
+	if err != nil {
+		fmt.Println(fmt.Errorf("Error retreiving organization: %q", err))
+		return
+	}
+	fmt.Println(fmt.Sprintf("GetOrganization - %#v", organization))
+
 	// --- Group interactions
 	group, err := c.GetGroup(1)
 	if err != nil {
