@@ -30,6 +30,17 @@ type Organization struct {
 	AuthSamlSsoUrl           	string `json:"auth_saml_sso_url,omitempty"`
 }
 
+// OrganizationCreatePayload struct
+type OrganizationCreatePayload struct {
+	AuthPasswordLoginEnabled	bool   `json:"auth_password_login_enabled"`
+	AuthSamlEnabled           	string `json:"auth_saml_enabled"`
+	AuthSamlType              	string `json:"auth_saml_type"`
+	AuthSamlEntityId         	string `json:"auth_saml_entity_id"`
+	AuthSamlMetadataUrl      	string `json:"auth_saml_metadata_url"`
+	AuthSamlNameidFormat     	string `json:"auth_saml_nameid_format"`
+	AuthSamlSsoUrl           	string `json:"auth_saml_sso_url"`
+}
+
 // GetOrganization returns the organization settings
 func (c *Client) GetOrganization() (*Organization, error) {
 	path := "/api/settings/organization"
