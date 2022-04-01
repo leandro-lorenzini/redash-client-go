@@ -84,7 +84,7 @@ func (c *Client) UpdateOrganization(organization *Organization) (*Organization, 
 
 	defer response.Body.Close()
 	body, err := ioutil.ReadAll(response.Body)
-	if err != nil {
+	if body != nil && err != nil {
 		return nil, err
 	}
 
