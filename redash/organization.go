@@ -46,7 +46,17 @@ func (c *Client) GetOrganization() (*Organization, error) {
 		return nil, err
 	}
 
-	organization := Organization{}
+	type Settings struct {
+		AuthPasswordLoginEnabled	bool   	`json:"settings.auth_password_login_enabled,omitempty"`
+		AuthSamlEnabled           	bool 	`json:"settings.auth_saml_enabled,omitempty"`
+		AuthSamlType              	string 	`json:"settings.auth_saml_type,omitempty"`
+		AuthSamlEntityId         	string 	`json:"settings.auth_saml_entity_id,omitempty"`
+		AuthSamlMetadataUrl      	string 	`json:"settings.auth_saml_metadata_url,omitempty"`
+		AuthSamlNameidFormat     	string 	`json:"settings.auth_saml_nameid_format,omitempty"`
+		AuthSamlSsoUrl           	string 	`json:"settings.auth_saml_sso_url,omitempty"`
+	}
+
+	organization := Settings{}
 
 	err = json.Unmarshal(body, &organization)
 	if err != nil {
@@ -77,7 +87,7 @@ func (c *Client) UpdateOrganization(organization *Organization) (*Organization, 
 		return nil, err
 	}
 
-	err = json.Unmarshal(json.Marshal(payload), &organization)
+	err = json.Unmarshal(body, &organization)
 	if err != nil {
 		return nil, err
 	}
