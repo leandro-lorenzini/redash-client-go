@@ -30,8 +30,19 @@ type Organization struct {
 	AuthSamlSsoUrl           	string 	`json:"auth_saml_sso_url,omitempty"`
 }
 
+type Settings struct {
+	AuthPasswordLoginEnabled	bool   	`json:"settings.auth_password_login_enabled,omitempty"`
+	AuthSamlEnabled           	bool 	`json:"settings.auth_saml_enabled,omitempty"`
+	AuthSamlType              	string 	`json:"settings.auth_saml_type,omitempty"`
+	AuthSamlEntityId         	string 	`json:"settings.auth_saml_entity_id,omitempty"`
+	AuthSamlMetadataUrl      	string 	`json:"settings.auth_saml_metadata_url,omitempty"`
+	AuthSamlNameidFormat     	string 	`json:"settings.auth_saml_nameid_format,omitempty"`
+	AuthSamlSsoUrl           	string 	`json:"settings.auth_saml_sso_url,omitempty"`
+}
+
+
 // GetOrganization returns the organization settings
-func (c *Client) GetOrganization() (*Organization, error) {
+func (c *Client) GetOrganization() (*Settings, error) {
 	path := "/api/settings/organization"
 
 	query := url.Values{}
@@ -44,16 +55,6 @@ func (c *Client) GetOrganization() (*Organization, error) {
 	body, err := ioutil.ReadAll(response.Body)
 	if err != nil {
 		return nil, err
-	}
-
-	type Settings struct {
-		AuthPasswordLoginEnabled	bool   	`json:"settings.auth_password_login_enabled,omitempty"`
-		AuthSamlEnabled           	bool 	`json:"settings.auth_saml_enabled,omitempty"`
-		AuthSamlType              	string 	`json:"settings.auth_saml_type,omitempty"`
-		AuthSamlEntityId         	string 	`json:"settings.auth_saml_entity_id,omitempty"`
-		AuthSamlMetadataUrl      	string 	`json:"settings.auth_saml_metadata_url,omitempty"`
-		AuthSamlNameidFormat     	string 	`json:"settings.auth_saml_nameid_format,omitempty"`
-		AuthSamlSsoUrl           	string 	`json:"settings.auth_saml_sso_url,omitempty"`
 	}
 
 	organization := Settings{}
@@ -83,11 +84,6 @@ func (c *Client) UpdateOrganization(organization *Organization) (*Organization, 
 
 	defer response.Body.Close()
 	body, err := ioutil.ReadAll(response.Body)
-	if err != nil {
-		return nil, err
-	}
-
-	err = json.Unmarshal(body, &organization)
 	if err != nil {
 		return nil, err
 	}
