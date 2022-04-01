@@ -77,7 +77,7 @@ func (c *Client) UpdateOrganization(organization *Organization) (*Organization, 
 		return nil, err
 	}
 
-	err = json.Unmarshal(body, &organization)
+	err = json.Unmarshal(json.Marshal(organization), &organization)
 	if err != nil {
 		return nil, err
 	}
